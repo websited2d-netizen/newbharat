@@ -35,11 +35,13 @@ const FeeExplanation: React.FC = () => {
                 <p className="text-gray-600">Cover screening, platform costs, and professional jury review processes</p>
               </div>
 
-              <div className="bg-orange-100 p-4 rounded-full w-fit mx-auto mb-4">
-                <Award className="h-8 w-8 text-orange-600" />
+              <div className="text-center">
+                <div className="bg-orange-100 p-4 rounded-full w-fit mx-auto mb-4">
+                  <Award className="h-8 w-8 text-orange-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">Quality Mentorship</h3>
+                <p className="text-gray-600">Provide expert evaluation, feedback, and professional guidance</p>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Quality Mentorship</h3>
-              <p className="text-gray-600">Provide expert evaluation, feedback, and professional guidance</p>
             </div>
 
             <div className="text-center bg-gradient-to-r from-orange-50 to-green-50 p-6 rounded-xl border border-orange-200">
