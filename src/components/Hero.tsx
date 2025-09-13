@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Calendar, Clock, Trophy, Star } from 'lucide-react';
 
 const Hero: React.FC = () => {
-  const [showCelebration, setShowCelebration] = useState(false);
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -11,12 +10,6 @@ const Hero: React.FC = () => {
   });
 
   useEffect(() => {
-    // Trigger celebration animation on component mount
-    setShowCelebration(true);
-    const celebrationTimer = setTimeout(() => {
-      setShowCelebration(false);
-    }, 4000);
-
     const targetDate = new Date('2025-10-15T23:59:59').getTime();
 
     const timer = setInterval(() => {
@@ -31,127 +24,11 @@ const Hero: React.FC = () => {
       setTimeLeft({ days, hours, minutes, seconds });
     }, 1000);
 
-    return () => {
-      clearInterval(timer);
-      clearTimeout(celebrationTimer);
-    };
+    return () => clearInterval(timer);
   }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-50 via-white to-green-50">
-      {/* Celebration Animation */}
-      {showCelebration && (
-        <div className="fixed inset-0 pointer-events-none z-50">
-          {/* Left Side Celebration */}
-          <div className="absolute left-0 top-1/2 transform -translate-y-1/2">
-            {[...Array(8)].map((_, i) => (
-              <div
-                key={`left-${i}`}
-                className="absolute text-4xl animate-bounce"
-                style={{
-                  left: `${-50 + i * 10}px`,
-                  top: `${-200 + i * 50}px`,
-                  animationDelay: `${i * 0.2}s`,
-                  animationDuration: '2s',
-                  transform: `rotate(${Math.random() * 360}deg)`,
-                }}
-              >
-                🎉
-              </div>
-            ))}
-            {[...Array(6)].map((_, i) => (
-              <div
-                key={`left-confetti-${i}`}
-                className="absolute text-3xl animate-ping"
-                style={{
-                  left: `${-30 + i * 15}px`,
-                  top: `${-150 + i * 60}px`,
-                  animationDelay: `${0.5 + i * 0.3}s`,
-                  animationDuration: '1.5s',
-                }}
-              >
-                🎊
-              </div>
-            ))}
-          </div>
-
-          {/* Right Side Celebration */}
-          <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
-            {[...Array(8)].map((_, i) => (
-              <div
-                key={`right-${i}`}
-                className="absolute text-4xl animate-bounce"
-                style={{
-                  right: `${-50 + i * 10}px`,
-                  top: `${-200 + i * 50}px`,
-                  animationDelay: `${i * 0.2}s`,
-                  animationDuration: '2s',
-                  transform: `rotate(${Math.random() * 360}deg)`,
-                }}
-              >
-                🎉
-              </div>
-            ))}
-            {[...Array(6)].map((_, i) => (
-              <div
-                key={`right-confetti-${i}`}
-                className="absolute text-3xl animate-ping"
-                style={{
-                  right: `${-30 + i * 15}px`,
-                  top: `${-150 + i * 60}px`,
-                  animationDelay: `${0.5 + i * 0.3}s`,
-                  animationDuration: '1.5s',
-                }}
-              >
-                🎊
-              </div>
-            ))}
-          </div>
-
-          {/* Center Burst Animation */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            {[...Array(12)].map((_, i) => (
-              <div
-                key={`center-${i}`}
-                className="absolute text-2xl animate-pulse"
-                style={{
-                  left: `${Math.cos((i * 30) * Math.PI / 180) * 100}px`,
-                  top: `${Math.sin((i * 30) * Math.PI / 180) * 100}px`,
-                  animationDelay: `${1 + i * 0.1}s`,
-                  animationDuration: '1s',
-                }}
-              >
-                ✨
-              </div>
-            ))}
-          </div>
-
-          {/* Floating Trophy Animation */}
-          <div className="absolute top-20 left-1/2 transform -translate-x-1/2">
-            <div className="text-6xl animate-bounce" style={{ animationDelay: '1.5s', animationDuration: '2s' }}>
-              🏆
-            </div>
-          </div>
-
-          {/* Money Rain Animation */}
-          {[...Array(10)].map((_, i) => (
-            <div
-              key={`money-${i}`}
-              className="absolute text-3xl animate-bounce"
-              style={{
-                left: `${10 + i * 10}%`,
-                top: '10px',
-                animationDelay: `${2 + i * 0.2}s`,
-                animationDuration: '3s',
-                animationIterationCount: '2',
-              }}
-            >
-              💰
-            </div>
-          ))}
-        </div>
-      )}
-
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-orange-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
