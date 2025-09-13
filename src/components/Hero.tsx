@@ -2,23 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Calendar, Clock, Trophy, Star } from 'lucide-react';
 
 const Hero: React.FC = () => {
-  const [showCelebration, setShowCelebration] = useState(false);
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
     minutes: 0,
     seconds: 0
   });
-
-  // Trigger celebration animation on component mount
-  useEffect(() => {
-    setShowCelebration(true);
-    const timer = setTimeout(() => {
-      setShowCelebration(false);
-    }, 3000); // Animation lasts 3 seconds
-
-    return () => clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     const targetDate = new Date('2025-10-15T23:59:59').getTime();
@@ -40,66 +29,6 @@ const Hero: React.FC = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-50 via-white to-green-50">
-      {/* Celebration Animation */}
-      {showCelebration && (
-        <>
-          {/* Left side party poppers */}
-          <div className="fixed left-0 top-1/2 transform -translate-y-1/2 z-50 pointer-events-none">
-            {[...Array(8)].map((_, i) => (
-              <div
-                key={`left-${i}`}
-                className="absolute text-4xl animate-bounce"
-                style={{
-                  top: `${i * 80 - 200}px`,
-                  animationDelay: `${i * 0.2}s`,
-                  animationDuration: '2s',
-                  left: `${Math.random() * 100}px`
-                }}
-              >
-                🎉
-              </div>
-            ))}
-          </div>
-
-          {/* Right side party poppers */}
-          <div className="fixed right-0 top-1/2 transform -translate-y-1/2 z-50 pointer-events-none">
-            {[...Array(8)].map((_, i) => (
-              <div
-                key={`right-${i}`}
-                className="absolute text-4xl animate-bounce"
-                style={{
-                  top: `${i * 80 - 200}px`,
-                  animationDelay: `${i * 0.2 + 0.1}s`,
-                  animationDuration: '2s',
-                  right: `${Math.random() * 100}px`
-                }}
-              >
-                🎉
-              </div>
-            ))}
-          </div>
-
-          {/* Center celebration burst */}
-          <div className="fixed inset-0 flex items-center justify-center z-40 pointer-events-none">
-            <div className="relative">
-              {[...Array(12)].map((_, i) => (
-                <div
-                  key={`center-${i}`}
-                  className="absolute text-3xl animate-ping"
-                  style={{
-                    transform: `rotate(${i * 30}deg) translateY(-100px)`,
-                    animationDelay: `${i * 0.1}s`,
-                    animationDuration: '1.5s'
-                  }}
-                >
-                  🎉
-                </div>
-              ))}
-            </div>
-          </div>
-        </>
-      )}
-
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-orange-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
