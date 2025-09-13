@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Mail, Trophy, Calendar, MapPin, Phone } from 'lucide-react';
 
 const Footer: React.FC = () => {
@@ -66,6 +67,9 @@ const Footer: React.FC = () => {
               <button onClick={() => scrollToSection('faq')} className="block text-gray-300 hover:text-orange-400 transition-colors">
                 FAQ
               </button>
+              <Link to="/terms" className="block text-gray-300 hover:text-orange-400 transition-colors">
+                Terms & Conditions
+              </Link>
             </div>
           </div>
 
@@ -122,7 +126,8 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              © 2025 PitchKaroIndia. All rights reserved. | India ka apna pitching platform.
+              © 2025 PitchKaroIndia. All rights reserved. | India ka apna pitching platform. | 
+              <Link to="/terms" className="hover:text-orange-400 transition-colors ml-2">Terms & Conditions</Link>
             </div>
             <div className="flex items-center space-x-6 text-sm text-gray-400">
               <span>🇮🇳 Proudly Indian</span>
