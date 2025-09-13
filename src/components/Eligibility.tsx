@@ -5,7 +5,7 @@ const Eligibility: React.FC = () => {
   const sectors = [
     "Technology & AI", "FinTech", "HealthTech", "EdTech", "E-commerce",
     "SaaS", "CleanTech", "AgriTech", "FoodTech", "Social Impact",
-    "Gaming", "AR/VR", "Blockchain", "IoT", "Robotics"
+    "Gaming", "AR/VR", "Blockchain", "IoT", "Robotics", "Construction"
   ];
 
   return (
