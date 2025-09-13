@@ -66,7 +66,7 @@ const Prizes: React.FC = () => {
             <Trophy className="h-16 w-16 text-yellow-500 mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-gray-800 mb-2">Total Prize Pool</h3>
             <div className="text-5xl font-bold bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">
-              ₹<AnimatedNumber value={50} />+ Lakh
+              ₹50+ Lakh
             </div>
             <p className="text-gray-600 mt-2">Cash + Opportunities</p>
           </div>
