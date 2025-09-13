@@ -4,13 +4,6 @@ import { Quote, Star, Users, Heart } from 'lucide-react';
 const Testimonials: React.FC = () => {
   const testimonials = [
     {
-      quote: "This is exactly what India's startup ecosystem needed - a platform that truly believes in democratizing entrepreneurship and providing equal opportunities to every innovative mind.",
-      author: "Prof. Rajesh Kumar",
-      title: "IIT Delhi, Entrepreneurship Cell Head",
-      type: "academic",
-      avatar: "👨‍🏫"
-    },
-    {
       quote: "Finally, a competition that focuses on merit over connections. The ₹50+ Lakh prize pool and investor access make this India's most valuable startup platform.",
       author: "Priya Sharma",
       title: "Venture Capital Partner",
