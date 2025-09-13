@@ -2,8 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#FF9933" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="format-detection" content="telephone=no" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PitchKaroIndia 2025 - India's Biggest Startup Pitching Event | Win ₹50+ Lakh</title>
     <meta name="description" content="Join PitchKaroIndia 2025 - India's premier startup pitching platform. Win from ₹50+ Lakh prize pool. Open for students, solo founders & startups. Register now for ₹249. 20+ investors. IIT professors as judges." />
     <meta name="keywords" content="startup competition India, pitch competition, startup funding, Indian startups, entrepreneurship, business plan competition, venture capital, angel investors, IIT, startup prizes" />
@@ -13,12 +17,64 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="PitchKaroIndia 2025 - India's Premier Startup Platform" />
     <meta name="twitter:description" content="Join India's biggest startup competition. ₹50+ Lakh prizes, 20+ investors, IIT professor judges." />
+    
+    <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://pitchkaroindia.fillout.com">
+    
+    <!-- Optimized font loading -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS inlined for faster loading -->
+    <style>
+      /* Critical above-the-fold styles */
+      body { margin: 0; font-family: Inter, system-ui, sans-serif; }
+      .loading-screen { 
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        background: linear-gradient(135deg, #FFF7ED, #FFFFFF, #F0FDF4); 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        z-index: 9999; 
+      }
+      .loading-spinner { 
+        width: 40px; 
+        height: 40px; 
+        border: 3px solid #FF9933; 
+        border-top: 3px solid transparent; 
+        border-radius: 50%; 
+        animation: spin 1s linear infinite; 
+      }
+      @keyframes spin { 
+        0% { transform: rotate(0deg); } 
+        100% { transform: rotate(360deg); } 
+      }
+    </style>
   </head>
   <body>
+    <!-- Loading screen -->
+    <div id="loading-screen" class="loading-screen">
+      <div class="loading-spinner"></div>
+    </div>
+    
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Remove loading screen after page loads -->
+    <script>
+      window.addEventListener('load', function() {
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+          loadingScreen.style.opacity = '0';
+          loadingScreen.style.transition = 'opacity 0.3s ease-out';
+          setTimeout(() => loadingScreen.remove(), 300);
+        }
+      });
+    </script>
   </body>
 </html>
