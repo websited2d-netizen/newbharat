@@ -166,7 +166,7 @@ const Prizes: React.FC = () => {
               Total for Top 30: ₹30,00,000 (₹1,00,000 × 30)
             </p>
             <div className="mt-4 bg-white/20 backdrop-blur-sm p-4 rounded-lg">
-              <p className="text-lg font-bold">Chhota risk lo, bada jeeto – ₹50+ Lakh ka mauka!</p>
+              <p className="text-lg font-bold">Apne idea ko startup me badalne ka mauka</p>
             </div>
           </div>
         </div>
