@@ -27,18 +27,24 @@ jobs:
         run: npm run build
 
       # 4️⃣a Add .htaccess for GoDaddy
-      - name: Add .htaccess for correct MIME types
+      - name: Add .htaccess for correct MIME types + SPA support
         run: |
-          cat <<EOL > dist/.htaccess
-          # Correct MIME types for Vite
+          cat <<'EOL' > dist/.htaccess
+          # ✅ Correct MIME types
           AddType application/javascript .js
+          AddType text/javascript .mjs
           AddType text/css .css
           AddType application/wasm .wasm
 
-          # Optional: Disable caching for HTML
-          <FilesMatch "\.html$">
-              Header set Cache-Control "no-cache, no-store, must-revalidate"
-          </FilesMatch>
+          # ✅ SPA fallback (Vite/React router)
+          <IfModule mod_rewrite.c>
+            RewriteEngine On
+            RewriteBase /
+            RewriteRule ^index\.html$ - [L]
+            RewriteCond %{REQUEST_FILENAME} !-f
+            RewriteCond %{REQUEST_FILENAME} !-d
+            RewriteRule . /index.html [L]
+          </IfModule>
           EOL
 
       # 4️⃣b Pre-check: Ensure dist/ exists
@@ -57,7 +63,7 @@ jobs:
           username: newbharat@pitchkaroindia.com
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: dist/
-          server-dir: ./            # Deploy directly to correct folder
+          server-dir: ./
           protocol: ftps
-          use_insecure: true        # Ignore TLS certificate issues
-          rm: true                  # Remove old files first
+          use_insecure: true
+          rm: true
