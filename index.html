@@ -18,56 +18,51 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="PitchKaroIndia 2025 - India's Premier Startup Platform" />
     <meta name="twitter:description" content="Join India's biggest startup competition. ₹50+ Lakh prizes, 20+ investors, IIT professor judges." />
-    
+
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://pitchkaroindia.fillout.com">
-    
+
     <!-- Optimized font loading -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+
     <!-- Critical CSS inlined for faster loading -->
     <style>
-      /* Critical above-the-fold styles */
       body { margin: 0; font-family: Inter, system-ui, sans-serif; }
-      .loading-screen { 
-        position: fixed; 
-        top: 0; 
-        left: 0; 
-        width: 100%; 
-        height: 100%; 
-        background: linear-gradient(135deg, #FFF7ED, #FFFFFF, #F0FDF4); 
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        z-index: 9999; 
+      .loading-screen {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: linear-gradient(135deg, #FFF7ED, #FFFFFF, #F0FDF4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
       }
-      .loading-spinner { 
-        width: 40px; 
-        height: 40px; 
-        border: 3px solid #FF9933; 
-        border-top: 3px solid transparent; 
-        border-radius: 50%; 
-        animation: spin 1s linear infinite; 
+      .loading-spinner {
+        width: 40px; height: 40px;
+        border: 3px solid #FF9933;
+        border-top: 3px solid transparent;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
       }
-      @keyframes spin { 
-        0% { transform: rotate(0deg); } 
-        100% { transform: rotate(360deg); } 
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
       }
     </style>
   </head>
   <body>
-    <!-- Loading screen -->
     <div id="loading-screen" class="loading-screen">
       <div class="loading-spinner"></div>
     </div>
-    
+
     <div id="root"></div>
 
+    <!-- ✅ Load the Vite entry point -->
+    <script type="module" src="./src/main.tsx"></script>
 
-    
-    <!-- Remove loading screen after page loads -->
     <script>
       window.addEventListener('load', function() {
         const loadingScreen = document.getElementById('loading-screen');
