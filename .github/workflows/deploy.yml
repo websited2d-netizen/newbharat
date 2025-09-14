@@ -28,5 +28,5 @@ jobs:
           server: ftp.youthstory.in
           username:  newbharat@pitchkaroindia.com
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: dist
+          local-dir: dist/
           server-dir: /public_html/pitchkaroindia.com/
