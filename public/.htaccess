@@ -1,7 +1,9 @@
+# Correct MIME types for JS and CSS
 AddType application/javascript .js
 AddType text/javascript .mjs
 AddType text/css .css
 
+# React/Vite SPA fallback
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
