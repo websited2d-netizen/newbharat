@@ -26,7 +26,22 @@ jobs:
       - name: Build Vite site
         run: npm run build
 
-      # 4️⃣a Pre-check: Ensure dist/ exists
+      # 4️⃣a Add .htaccess for GoDaddy
+      - name: Add .htaccess for correct MIME types
+        run: |
+          cat <<EOL > dist/.htaccess
+          # Correct MIME types for Vite
+          AddType application/javascript .js
+          AddType text/css .css
+          AddType application/wasm .wasm
+
+          # Optional: Disable caching for HTML
+          <FilesMatch "\.html$">
+              Header set Cache-Control "no-cache, no-store, must-revalidate"
+          </FilesMatch>
+          EOL
+
+      # 4️⃣b Pre-check: Ensure dist/ exists
       - name: Check dist folder
         run: |
           if [ ! -d "dist" ]; then
@@ -44,6 +59,5 @@ jobs:
           local-dir: dist/
           server-dir: ./            # Deploy directly to correct folder
           protocol: ftps
-          use_insecure: true
-          rm: true
-
+          use_insecure: true        # Ignore TLS certificate issues
+          rm: true                  # Remove old files first
