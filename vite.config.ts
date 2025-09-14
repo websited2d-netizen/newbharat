@@ -1,11 +1,12 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './',  // Relative paths for assets
+  base: './',
   build: {
+    outDir: 'dist',
     rollupOptions: {
       output: {
         manualChunks: {
@@ -29,8 +30,6 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   server: {
-    hmr: {
-      overlay: false,
-    },
+    hmr: { overlay: false },
   },
-});
+})
