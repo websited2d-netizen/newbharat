@@ -42,7 +42,8 @@ jobs:
           username: newbharat@pitchkaroindia.com
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: dist/
-          server-dir: /public_html/pitchkaroindia.com/
+          server-dir: ./            # Deploy directly to correct folder
           protocol: ftps
-          use_insecure: true    # Ignore TLS certificate issues
-          rm: true              # Remove old files before uploading
+          use_insecure: true
+          rm: true
+
